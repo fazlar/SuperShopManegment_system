@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                 
+        <h:outputStylesheet  name="./css/bootstrap.min_1.css"/>
+        <h:outputStylesheet  name="./css/font-awesome.min.css"/>
+        
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <h:outputStylesheet  name="./css/style.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+
+    </h:head>
+
+    <h:body>
+        <div class="container">
+            <div class="row headerow">
+                <div class="col-md-12 header">
+                    <ui:insert name="header">
+                        <div class="row">
+                            <img class="responsiv-img" src="resources/images/download.jpg" style="width: 100%"/>
+                        </div>
+                    </ui:insert>
+                </div>
+            </div>
+            <!-- start menue secation-->
+            <div class="row menuerow">
+                <div class="col-md-12 menue">
+                    <ui:insert name="menue">
+                        <div class="row">
+                            <nav class="navbar navbar-inverse">
+                                <div class="container-fluid">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span> 
+                                        </button>
+                                        <a class="navbar-brand" href="#"> <img class="responsiv-img" src="resources/images/rabbi.PNG" style="max-width: 44px"/></a>
+                                    </div>
+                                    <div class="collapse navbar-collapse" id="myNavbar">
+                                        <ul class="nav navbar-nav">
+                                            <li class="active"> <h:link outcome="Home" value="HOME"/> </li>
+                                            <li><h:link outcome="Home" value="About"/></li>
+                                            <li><h:link outcome="Home" value="Barnch"/></li> 
+                                            <li><h:link outcome="Home" value="Help"/></li> 
+                                        </ul>
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li>
+                                                <h:link outcome="login">
+                                                    <span class="glyphicon glyphicon-user"></span> Admin
+                                                </h:link>
+                                            </li>
+                                            <li>
+                                                <h:link outcome="userlogin">
+                                                    <span class="glyphicon glyphicon-log-in"></span> User
+                                                </h:link>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </ui:insert>
+                </div>
+            </div>
+            <!-- start menue secation-->
+            <!-- start content  secation-->
+            <div class="row contentrow">
+                <div class="col-md-12 content ">
+                    <ui:insert name="content">
+                        <div style="width: 100%;">
+                            <div class="container">
+                                <h2>Our  products</h2>
+                                <section class="customer-logos slider">
+                                    <div class="slide"><img style="width: 150px; height: 150px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjGbom2_1Ro8eUMkp93oxiOw132DKPORVHd6WJLGMOLNxJoJa0"/></div>
+                                    <div class="slide"><img src="https://cdn.shopify.com/s/files/1/2048/2939/products/LS662_TRBL_Z_800x.progressive.jpg?v=1562789980"/></div>
+                                    <div class="slide"><img src="https://plantogram.com/wa-data/public/shop/products/38/03/338/images/604/604.970.jpg"/></div>
+                                    <div class="slide"><img src="https://image.freepik.com/free-vector/blue-tech-logo_1103-822.jpg"/></div>
+                                    <div class="slide"><img src="https://www.healthline.com/hlcmsresource/images/AN_images/fruits-and-vegetables-thumb.jpg"/></div>
+                                    <div class="slide"><img src="http://ecdn.banglatribune.com/contents/cache/images/800x0x1/uploads/media/2018/10/11/68b5d864b05f3d995a706cca24ecb83b-5bbe3f150718d.jpg"/></div>
+                                    <div class="slide"><img src="https://static-01.daraz.com.bd/original/b810f7c58a73395743d8f75d20aa9b68.jpg"/></div>
+                                    <div class="slide"><img src="https://www.bestelectronicsltd.com/wp-content/uploads/2018/01/Panasonic-Mixer-Ad-Block.png"/></div>
+                                    <div class="slide"><img src="https://image.freepik.com/free-vector/retro-label-on-rustic-background_82147503374.jpg"/></div>
+                                </section>
+
+                            </div> 
+                            <div class="container">
+                                
+                                <section class="customer-logos slider">
+                                    <div class="slide"><img style="width: 150px; height: 150px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjGbom2_1Ro8eUMkp93oxiOw132DKPORVHd6WJLGMOLNxJoJa0"/></div>
+                                    <div class="slide"><img src="https://cdn.shopify.com/s/files/1/2048/2939/products/LS662_TRBL_Z_800x.progressive.jpg?v=1562789980"/></div>
+                                    <div class="slide"><img src="https://plantogram.com/wa-data/public/shop/products/38/03/338/images/604/604.970.jpg"/></div>
+                                    <div class="slide"><img src="https://image.freepik.com/free-vector/blue-tech-logo_1103-822.jpg"/></div>
+                                    <div class="slide"><img src="https://www.healthline.com/hlcmsresource/images/AN_images/fruits-and-vegetables-thumb.jpg"/></div>
+                                    <div class="slide"><img src="http://ecdn.banglatribune.com/contents/cache/images/800x0x1/uploads/media/2018/10/11/68b5d864b05f3d995a706cca24ecb83b-5bbe3f150718d.jpg"/></div>
+                                    <div class="slide"><img src="https://static-01.daraz.com.bd/original/b810f7c58a73395743d8f75d20aa9b68.jpg"/></div>
+                                    <div class="slide"><img src="https://www.bestelectronicsltd.com/wp-content/uploads/2018/01/Panasonic-Mixer-Ad-Block.png"/></div>
+                                    <div class="slide"><img src="https://image.freepik.com/free-vector/retro-label-on-rustic-background_82147503374.jpg"/></div>
+                                </section>
+
+                            </div>    
+                        </div>
+                    </ui:insert>
+                </div>
+            </div>
+            <!-- end content  secation--> 
+            <div class="row footerrow">
+                <div class="col-md-12 ">
+                    <ui:insert name="footer">
+                        <footer class="footer">
+                            <div class="container">
+                            <p>© MA SUPER SHOP | Privacy Policy | Terms of Service</p>
+                            </div>
+                       </footer>
+                    </ui:insert>
+                </div>
+            </div>
+        </div>
+        <script src="resources/js/main.js"></script>
+    </h:body>
+</html>

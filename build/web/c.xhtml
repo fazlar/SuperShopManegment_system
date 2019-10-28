@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <body>
+
+        <ui:composition template="./Home.xhtml">
+
+            <ui:define name="menue">
+               <div class="row">
+                            <nav class="navbar navbar-inverse">
+                                <div class="container-fluid">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span> 
+                                        </button>
+                                        <a class="navbar-brand" href="#"> <img class="responsiv-img" src="resources/images/rabbi.PNG" style="max-width: 44px"/></a>
+                                    </div>
+                                    <div class="collapse navbar-collapse" id="myNavbar">
+                                        <ul class="nav navbar-nav">
+                                           <li class="active"> <h:link outcome="adminpage" value="HOME"/> </li>
+                                           <li><h:link outcome="addproduct" value="addproduct"/></li>
+                                            <li><h:link outcome="productlist" value="productlist"/></li>
+                                            <li><h:link outcome="c" value="sale"/></li> 
+                                            <li><h:link outcome="employee" value="Add_Employee"/></li> 
+                                        </ul>
+                                        <ul class="nav navbar-nav navbar-right">
+                                             
+                                            
+                                            <li>
+                                                <h:link outcome="Home">
+                                                   <span class="glyphicon glyphicon-log-in"></span> Logout
+                                                </h:link>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+            </ui:define>
+
+            <ui:define name="content">
+                <div class="row">
+                    <h:form>
+                        <h:inputText styleClass="form-control input-md" style="width: 250px" value="#{productControler.search}"/>
+                    
+                    <h:commandButton value="search" styleClass="btn btn-primary" action="#{productControler.salesReport()}"></h:commandButton>
+                    </h:form>
+                </div>
+                <table class="table table-bordered table-striped table-hover">
+                    <tr>
+                        <th> ID</th>
+                        <th>c_name</th>
+                        <th>c_address</th>
+                        <th>p_descri</th>
+                        <th>pro.recevier</th>
+                        <th>pro.price</th>
+                       
+                    </tr>
+                           <c:set var="pprice" value="0" scope="request"/>
+                           <c:set var="pprice2" value="0" scope="request"/>
+                           <c:forEach var="pro" items="#{productControler.saleshowList()}">
+                        <tr class="warning">
+                            <td><h:outputText value="#{pro.id}"/></td>
+                            <td><h:outputText value="#{pro.c_name}"/></td>
+                            <td><h:outputText value="#{pro.c_address}"/></td>
+                            <td><h:outputText value="#{pro.p_descri}"/></td>
+                            <td><h:outputText value="#{pro.recevier}"/></td>
+                            <td><h:outputText value="#{pro.price}"/></td>
+                             
+                             
+                            
+                        </tr>  
+                        
+                    </c:forEach>
+                        
+                          
+                </table>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

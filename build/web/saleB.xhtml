@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./userHomeA.xhtml">
+
+            <ui:define name="content">
+                <div class="col-md-6">
+                    <table class="table table-bordered table-striped table-hover">
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Product catagory</th>
+                        <th>Product Quantity</th>
+                        <th>Product price</th>
+                        <th>Entiy Date</th>
+                        <th>purchase</th>
+                    </tr>
+                        <c:forEach var="pro" items="#{productControler.purchaseListB()}">
+                        <tr class="warning">
+                            <td><h:outputText value="#{pro.p_id}"/></td>
+                            <td><h:outputText value="#{pro.name}"/></td>
+                            <td><h:outputText value="#{pro.catagory}"/></td>
+                            <td><h:outputText value="#{pro.qty}"/></td>
+                            <td><h:outputText value="#{pro.price}"/></td>
+                            <td><h:outputText value="#{pro.date}"/></td>
+                             <td>
+                                <h:form>
+                                    <h:commandButton styleClass="btn btn-primary" action="#{productControler.saleB(pro)}" value="SALE"/>
+                                </h:form>
+                             </td>
+                        </tr>  
+                        
+                    </c:forEach>
+                </table>
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-bordered table-striped table-hover">
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        
+                        <th>Product Quantity</th>
+                        <th>Product price</th>
+                        
+                        <th>delete</th>
+                    </tr>
+                        <c:forEach var="pro" items="#{productControler.saleDetaisB()}">
+                        <tr class="warning">
+                            <td><h:outputText value="#{pro.p_id}"/></td>
+                            <td><h:outputText value="#{pro.name}"/></td>
+                            <td><h:outputText value="#{pro.qty}"/></td>
+                            <td><h:outputText value="#{pro.price}"/></td>
+                             <td>
+                                <h:form>
+                                    <h:commandButton styleClass="btn btn-primary" action="#{productControler.deleteSaleB(pro)}" value="Delete"/>
+                                </h:form>
+                             </td>
+                        </tr>  
+                            
+                    </c:forEach>
+                        <tr>
+                                <td>descri</td>
+                                 <td><h:outputText value="#{productControler.getpDesc()}"/></td>
+                                 <td>Total:</td>
+                                 <td><h:outputText value="#{productControler.totalPtice}"/></td>
+                                 <td><h:outputText value="#{productControler.totalPtice}"/></td>
+                                 
+                            </tr>
+                        
+                </table>
+                    <h:form  styleClass="form-horizontal">
+                            <legend style="text-align: center; background-color: #31BDE6">Customer Info</legend>
+                            
+                                 <div class="form-group"> 
+                                <h:outputLabel styleClass="col-md-4 control-label" >Customer Name</h:outputLabel>
+                                <div class="col-md-7">                                    
+                                    <h:inputText styleClass="form-control input-md"  value="#{productControler.saledatilesB.c_name}" required="true" requiredMessage="username is required"/>
+                                </div>
+                            </div>
+                                
+                           
+                            
+                                 <div class="form-group"> 
+                                <h:outputLabel styleClass="col-md-4 control-label" >Customer Address</h:outputLabel>
+                                <div class="col-md-7">                                    
+                                    <h:inputText styleClass="form-control input-md"  value="#{productControler.saledatilesB.c_address}" required="true" requiredMessage="username is required"/>
+                                </div>
+                            </div>
+                            <div class="form-group"> 
+                                    <h:outputLabel styleClass="col-md-4 control-label" >SALE DATE:</h:outputLabel>
+                                    <div class="col-md-7">                                    
+                                        <p:calendar id="inline" value="#{productControler.saledatilesB.date}" mode="popup" />  
+                                    </div>
+                                  </div>
+                            
+                            <div class="form-group"> 
+                                    <h:outputLabel styleClass="col-md-4 control-label" >Product price</h:outputLabel>
+                                    <div class="col-md-7">                                    
+                                        <h:selectOneMenu id="hard-dropdown" value="#{productControler.saledatilesB.recevier}" styleClass="form-control">
+                                        <f:selectItem itemValue="Rabbi" itemLabel="Rabbi"/>
+                                        <f:selectItem itemValue="HAmim" itemLabel="HAmim"/>
+                                    </h:selectOneMenu>
+                                    </div>
+                            </div>
+                                    <h:outputLabel styleClass="col-md-4 control-label" ></h:outputLabel>
+                                    <h:commandButton styleClass="btn btn-primary" action="#{productControler.saveSaleDetaisB()}" value="Save Product"/>
+                                
+                    </h:form>
+                </div>
+                <div class="col-md-12 mt-5" style="padding: 0px 0px 0px 50px;">
+                       <h:form  styleClass="form-horizontal">
+                            <legend style="text-align: center; background-color: #31BDE6">PRODUCTS</legend>
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group"> 
+                                    <h:outputLabel styleClass="col-md-4 control-label" >Purchase ID</h:outputLabel>
+                                    <div class="col-md-7">                                    
+                                    <h:inputText styleClass="form-control input-md"  value="#{productControler.purchaseA.id}" required="true" requiredMessage="username is required" disabled="true"/>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"> 
+                                        <h:outputLabel styleClass="col-md-4 control-label" >Product ID</h:outputLabel>
+                                        <div class="col-md-7">                                    
+                                        <h:inputText styleClass="form-control input-md"  value="#{productControler.purchaseA.p_id}" required="true" requiredMessage="username is required" disabled="true"/>
+                                       </div>
+                                   </div>
+                                </div>
+                            </div>
+                              <!-- ty-->  
+                                 <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group"> 
+                                    <h:outputLabel styleClass="col-md-4 control-label" >Product name</h:outputLabel>
+                                    <div class="col-md-7">                                    
+                                        <h:inputText styleClass="form-control input-md"  value="#{productControler.purchaseA.name}" required="true" requiredMessage="username is required" disabled="true"/>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"> 
+                                    <h:outputLabel styleClass="col-md-4 control-label" >Product price</h:outputLabel>
+                                    <div class="col-md-7">                                    
+                                        <h:selectOneMenu id="hard-dropdown" value="#{productControler.purchaseA.catagory}" styleClass="form-control" disabled="true">
+                                        <f:selectItem itemValue="Furuts" itemLabel="Furuts"/>
+                                        <f:selectItem itemValue="Cloths" itemLabel="Cloths"/>
+                                        <f:selectItem itemValue="ICT" itemLabel="ICT"/>
+                                        <f:selectItem itemValue="Dairy" itemLabel="Dairy"/>
+                                    </h:selectOneMenu>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                              <!-- ty-->  
+                                 
+                                <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group"> 
+                                    <h:outputLabel styleClass="col-md-4 control-label" >Avaiale Qty</h:outputLabel>
+                                    <div class="col-md-7">                                    
+                                        <h:inputText styleClass="form-control input-md" value="#{productControler.purchaseA.qty}" required="true" requiredMessage="username is required" disabled="true"/>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                   <div class="form-group"> 
+                                    <h:outputLabel styleClass="col-md-4 control-label" >Product Qty</h:outputLabel>
+                                    <div class="col-md-7">                                    
+                                        <h:inputText styleClass="form-control input-md" value="#{productControler.pu_qty}" required="true" requiredMessage="username is required"/>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                              <!-- ty-->  
+                                
+                                   <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group"> 
+                                    <h:outputLabel styleClass="col-md-4 control-label" >Product price</h:outputLabel>
+                                    <div class="col-md-7">                                    
+                                        <h:inputText styleClass="form-control input-md"  value="#{productControler.purchaseA.price}" required="true" requiredMessage="username is required" disabled="true"/>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group"> 
+                                <h:outputLabel styleClass="col-md-4 control-label" >Enety date</h:outputLabel>
+                                <div class="col-md-7">                                    
+                                    <p:calendar id="inliner" value="#{productControler.purchaseA.date}" mode="popup" disabled="true"/>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                              <!-- ty-->  
+                                      
+                                     <div class="form-group"> 
+                                    <h:outputLabel styleClass="col-md-4 control-label" >SALE DATE:</h:outputLabel>
+                                    <div class="col-md-7">                                    
+                                        <p:calendar id="inline" value="#{productControler.saleB.date}" mode="popup" />  
+                                    </div>
+                                  </div>
+                                <h:outputLabel styleClass="col-md-4 control-label" ></h:outputLabel>
+                                <h:commandButton styleClass="btn btn-primary" action="#{productControler.saveSaleB(productControler)}" value="Save saleDeatiles"/>
+                                 <h:commandButton value="reset" type="reset" styleClass="btn btn-primary" style="margin-left: 5px"/>
+                         </h:form>
+                    </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

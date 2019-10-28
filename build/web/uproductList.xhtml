@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <body>
+
+        <ui:composition template="./userHome.xhtml">
+ <ui:define name="content">
+                <table class="table table-bordered table-striped table-hover">
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Product catagory</th>
+                        <th>Product Quantity</th>
+                        <th>Product price</th>
+                        <th>Entiy Date</th>
+                        <th>purchase</th>
+                        
+                    </tr>
+                    
+                    <c:forEach var="pro" items="#{productControler.productList()}">
+                        <tr class="warning">
+                            <td><h:outputText value="#{pro.id}"/></td>
+                            <td><h:outputText value="#{pro.name}"/></td>
+                            <td><h:outputText value="#{pro.catagory}"/></td>
+                            <td><h:outputText value="#{pro.qty}"/></td>
+                            <td><h:outputText value="#{pro.price}"/></td>
+                            <td><h:outputText value="#{pro.date}"/></td>
+                             
+                             <td>
+                                <h:form>
+                                    <h:commandButton styleClass="btn btn-primary" action="#{productControler.purchaseA(pro)}" value="Purchase"/>
+                                </h:form>
+                             </td>
+                            
+                        </tr>  
+                        
+                    </c:forEach>
+                        
+                        
+                          
+                </table>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
